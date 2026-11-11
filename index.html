@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FormUp · ton programme de musculation et ton suivi forme</title>
+<meta name="description" content="FormUp : application Android gratuite de musculation et de suivi forme. Programme créé selon ton objectif, séances guidées, progression des charges, sommeil, eau et repas.">
+<link rel="icon" href="assets/icone.png">
+<style>
+  :root { --vert:#0D3B33; --menthe:#5EE6B5; --encre:#16202A; --gris:#5B6B78; --fond:#F2F6F5; --carte:#fff; --ligne:#DDE5E3; }
+  @media (prefers-color-scheme: dark) { :root { --encre:#E8EDF2; --gris:#9AA7B3; --fond:#0F1715; --carte:#17221F; --ligne:#26352F; } }
+  * { box-sizing:border-box; }
+  body { margin:0; font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; color:var(--encre); background:var(--fond); line-height:1.5; }
+  .wrap { max-width:980px; margin:0 auto; padding:0 16px; }
+  header { background:var(--vert); color:#fff; padding:40px 0 48px; }
+  .hero { display:grid; grid-template-columns:1fr auto; gap:32px; align-items:center; }
+  .marque { display:flex; align-items:center; gap:14px; }
+  .marque img { width:64px; height:64px; border-radius:16px; }
+  h1 { font-size:2.4rem; margin:0; letter-spacing:.5px; }
+  .accroche { font-size:1.2rem; margin:14px 0 22px; color:#D8F5EA; max-width:34em; }
+  .bouton { display:inline-flex; align-items:center; gap:10px; background:var(--menthe); color:var(--vert); font-weight:800; font-size:1.15rem; text-decoration:none; padding:16px 26px; border-radius:14px; }
+  .bouton:hover { filter:brightness(1.05); }
+  .petit { color:#BFE8D9; font-size:.9rem; margin-top:10px; }
+  .qr { background:#fff; border-radius:18px; padding:14px; text-align:center; color:var(--vert); }
+  .qr img { width:180px; height:180px; display:block; }
+  .qr small { display:block; font-weight:600; margin-top:4px; }
+  section { padding:40px 0 8px; }
+  h2 { font-size:1.6rem; margin:0 0 18px; }
+  .etapes { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; counter-reset:e; }
+  .etape { background:var(--carte); border:1px solid var(--ligne); border-radius:16px; padding:18px; }
+  .etape::before { counter-increment:e; content:counter(e); display:grid; place-items:center; width:34px; height:34px; border-radius:50%; background:var(--vert); color:#fff; font-weight:800; margin-bottom:8px; }
+  .etape b { display:block; margin-bottom:4px; }
+  .captures { display:flex; gap:14px; overflow-x:auto; padding-bottom:10px; scroll-snap-type:x mandatory; }
+  .captures figure { margin:0; flex:0 0 220px; scroll-snap-align:start; }
+  .captures img { width:220px; border-radius:18px; border:1px solid var(--ligne); display:block; }
+  .captures figcaption { font-size:.88rem; color:var(--gris); margin-top:6px; text-align:center; }
+  .atouts { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; }
+  .atout { background:var(--carte); border:1px solid var(--ligne); border-radius:16px; padding:16px 18px; }
+  .atout b { display:block; margin-bottom:2px; }
+  .atout span { color:var(--gris); }
+  details { background:var(--carte); border:1px solid var(--ligne); border-radius:14px; padding:12px 16px; margin-bottom:10px; }
+  summary { font-weight:700; cursor:pointer; }
+  footer { color:var(--gris); font-size:.88rem; padding:32px 0 40px; text-align:center; }
+  a { color:inherit; }
+  @media (max-width:720px) {
+    .hero { grid-template-columns:1fr; } .qr { justify-self:start; }
+    .etapes, .atouts { grid-template-columns:1fr; }
+    h1 { font-size:2rem; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap hero">
+    <div>
+      <div class="marque"><img src="assets/icone.png" alt=""><h1>FormUp</h1></div>
+      <p class="accroche">Ton programme de musculation créé pour toi en 2 minutes, et ton suivi forme au même endroit : séances, sommeil, eau et repas.</p>
+      <a class="bouton" href="https://github.com/orfeo971/formup/releases/latest/download/FormUp.apk">⬇ Télécharger pour Android</a>
+      <p class="petit">Gratuit · sans compte · sans publicité · Android 8 ou plus récent</p>
+    </div>
+    <div class="qr">
+      <img src="assets/qr-telecharger.svg" alt="QR code de téléchargement de FormUp">
+      <small>Scanne avec ton téléphone</small>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section>
+    <h2>Installer en 3 étapes</h2>
+    <div class="etapes">
+      <div class="etape"><b>Télécharge</b>Touche le bouton vert ou scanne le QR code avec l'appareil photo de ton téléphone Android.</div>
+      <div class="etape"><b>Ouvre le fichier</b>Touche « FormUp.apk » dans les téléchargements. La première fois, Android demande d'autoriser l'installation depuis cette source : accepte.</div>
+      <div class="etape"><b>Réponds à l'assistant</b>Ton objectif, ton niveau, salle ou maison, tes jours : FormUp crée ton programme et ton planning.</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>En images</h2>
+    <div class="captures">
+      <figure><img src="assets/1-assistant.png" alt="Assistant de démarrage"><figcaption>L'assistant de démarrage</figcaption></figure>
+      <figure><img src="assets/2-programme.png" alt="Programme créé"><figcaption>Ton programme est prêt</figcaption></figure>
+      <figure><img src="assets/3-accueil.png" alt="Accueil"><figcaption>Indice de forme, repas et eau</figcaption></figure>
+      <figure><img src="assets/4-seance.png" alt="Séance"><figcaption>Séance guidée, muscles travaillés</figcaption></figure>
+      <figure><img src="assets/5-mouvement.png" alt="Animation d'un mouvement"><figcaption>Chaque mouvement animé et expliqué</figcaption></figure>
+    </div>
+  </section>
+
+  <section>
+    <h2>Ce que fait FormUp</h2>
+    <div class="atouts">
+      <div class="atout"><b>🏋 Un programme pour toi</b><span>Prise de muscle, force, perte de poids ou remise en forme, débutant ou confirmé, en salle ou à la maison.</span></div>
+      <div class="atout"><b>📈 La bonne charge à chaque séance</b><span>FormUp te dit quoi viser : une répétition de plus, ou le palier suivant quand toutes les séries sont réussies.</span></div>
+      <div class="atout"><b>▶ Les mouvements animés</b><span>Chaque exercice montré en animation, muscles en couleur, avec les consignes pour le faire proprement.</span></div>
+      <div class="atout"><b>⏱ Minuteurs de repos</b><span>Bip et vibration à la fin du repos, écran allumé pendant les séries chronométrées.</span></div>
+      <div class="atout"><b>🌙 Sommeil, 💧 eau, 🥗 repas</b><span>Note tes nuits, pointe tes verres d'un geste (même écran verrouillé), suis tes protéines.</span></div>
+      <div class="atout"><b>★ Ton indice de forme</b><span>Activité, alimentation et sommeil résumés en une note sur 100, avec ta priorité du jour.</span></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Questions fréquentes</h2>
+    <details><summary>Faut-il un compte ?</summary><p>Non. Pas de compte, pas d'inscription. Tes données restent sur ton téléphone.</p></details>
+    <details><summary>Pourquoi Android parle de « source inconnue » ?</summary><p>FormUp n'est pas (encore) sur le Play Store : Android demande donc ton accord une seule fois pour l'installer depuis ton navigateur. C'est normal.</p></details>
+    <details><summary>Comment avoir les nouvelles versions ?</summary><p>Depuis l'application : ⚙ Réglages, carte « Mise à jour » en haut. FormUp télécharge et installe la nouvelle version, tes données sont conservées.</p></details>
+    <details><summary>Et le coach IA ?</summary><p>Facultatif. Il donne des conseils personnalisés avec ta propre clé API Claude (payante à l'usage chez Anthropic). Sans lui, tout le reste fonctionne.</p></details>
+    <details><summary>Et l'iPhone ?</summary><p>FormUp existe pour l'instant seulement sur Android.</p></details>
+  </section>
+</main>
+
+<footer>FormUp · application gratuite · <a href="https://github.com/orfeo971/formup/releases">toutes les versions</a></footer>
+</body>
+</html>
