@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Retour dans l'application</title>
+<style>
+  :root { --bg:#f4f6f9; --fg:#14181f; --muted:#5b6574; --btn:#14181f; --btnfg:#fff; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#0e1116; --fg:#eef1f5; --muted:#9aa4b2; --btn:#eef1f5; --btnfg:#0e1116; } }
+  body { margin:0; min-height:100vh; display:grid; place-items:center; background:var(--bg); color:var(--fg); font:16px/1.5 system-ui, sans-serif; padding:16px; box-sizing:border-box; }
+  main { max-width:420px; text-align:center; }
+  a.btn { display:inline-block; margin-top:16px; padding:14px 22px; border-radius:12px; background:var(--btn); color:var(--btnfg); text-decoration:none; font-weight:600; }
+  p { color:var(--muted); }
+</style>
+</head>
+<body>
+<main>
+  <h1 id="t">Connexion COROS réussie</h1>
+  <p id="m">Retour dans l'application…</p>
+  <a class="btn" id="go" href="#" hidden>Revenir dans l'application</a>
+</main>
+<script>
+  /* Page relais de la connexion COROS : COROS n'accepte qu'une adresse de retour https.
+     L'application à rouvrir est indiquée au début du paramètre « state » (ex. fr.orfeo.xxx~jeton). */
+  (function () {
+    var q = location.search, st = new URLSearchParams(q).get("state") || "", scheme = st.split("~")[0];
+    if (!/^fr\.orfeo\.[a-z]+$/.test(scheme)) {
+      document.getElementById("t").textContent = "Lien incomplet";
+      document.getElementById("m").textContent = "Relance la connexion COROS depuis l'application.";
+      return;
+    }
+    var path = "coros/callback" + q;
+    var intent = "intent://" + path + "#Intent;scheme=" + scheme + ";package=" + scheme + ";end";
+    var go = document.getElementById("go");
+    go.href = /Android/i.test(navigator.userAgent) ? intent : scheme + "://" + path;
+    go.hidden = false;
+    if (new URLSearchParams(q).get("error")) document.getElementById("t").textContent = "Connexion COROS annulée";
+    location.replace(go.href);
+    setTimeout(function () { document.getElementById("m").textContent = "Si l'application ne s'ouvre pas, touche le bouton :"; }, 800);
+  })();
+</script>
+</body>
+</html>
